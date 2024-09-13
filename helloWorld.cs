@@ -4,7 +4,8 @@ class Program
 {
 static void Main(string[] args)
     { 
-		Console.WriteLine("Hello, world");
-
+		string tegn = "hello world";
+	
+		Console.WriteLine(tegn);
 	}
 }
