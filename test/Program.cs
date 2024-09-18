@@ -14,47 +14,56 @@ class Sudoku
 		
     }
 
-    /*public int[,] buildSudoku(int[,] sudokuNums)
+    public bool checkSudoku()
     {
-        int[,] sudokuBoard = new int[rows, columns];
-
-        for (int row = 0; row < rows; row++)
+		bool isCellsValid, isRowsValid, isColumnsValid;                         // 1 2 3 //
+		isCellsValid = false;                                                   // 4 5 6 //
+		isRowsValid = false;                                                    // 7 8 9 //
+		isColumnsValid = false;
+		
+        bool checkRows()
+        {
+            for (int row = 0; row < rows; row++)
+            {
+                for (int col = 0; col < columns-1; col++)
+                {
+                    for (int toCheck = col+1; toCheck < columns; toCheck++)				//check rows
+                    {
+                        if (sudokuBoard[row, col] == sudokuBoard[row, toCheck])			//not valid
+                        {
+                            isRowsValid = false;
+                            break;
+                        }
+                        isRowsValid = true;
+                    }
+                }
+            }
+            return isRowsValid;
+        }
+        bool checkColumns()
         {
             for (int col = 0; col < columns; col++)
             {
-                sudokuBoard[row, col] = sudokuNums[row, col];
+                for (int row = 0; row < rows-1; row++)
+                {
+                    for (int toCheck = row+1; toCheck < rows; toCheck++)				//check rows
+                    {
+                        if (sudokuBoard[row, col] == sudokuBoard[toCheck, col])			//not valid
+                        {
+                            isColumnsValid = false;
+                            break;
+                        }
+                        isColumnsValid = true;
+                    }
+                }
             }
+            return isColumnsValid;
         }
 
-        return sudokuBoard;
-    }*/
-    public bool checkSudoku()
-    {
-		bool isCellsValid, isRowsValid, isColumnsValid;
-		isCellsValid = false; 
-		isRowsValid = false;
-		isColumnsValid = false;
-		
-		for (int row = 0; row < rows; row++)
-        {
-			
-			
-            for (int col = 0; col < columns-1; col++)
-            {
-                for (int toCheck = col+1; toCheck < columns; toCheck++)				//check rows
-				{
-					if (sudokuBoard[row, col] == sudokuBoard[row, toCheck])			//not valid
-					{
-						isRowsValid = false;
-						Console.WriteLine(isRowsValid);
-						break;
-					}
-					isRowsValid = true;
-					
-				}
-            }
-        }
-		
+        Console.WriteLine(checkColumns());
+        Console.WriteLine(checkRows());
+
+
         return isCellsValid && isRowsValid && isColumnsValid;
     }
 
