@@ -15,12 +15,7 @@ class Sudoku
     }
 
     public bool checkSudoku()
-    {
-		bool isCellsValid, isRowsValid, isColumnsValid;                         // 1 2 3 //
-		isCellsValid = false;                                                   // 4 5 6 //
-		isRowsValid = false;                                                    // 7 8 9 //
-		isColumnsValid = false;
-		
+    {		
         bool checkRows()
         {
             for (int row = 0; row < rows; row++)
@@ -57,39 +52,40 @@ class Sudoku
             }
             return true;
         }
-
-// (0,0)(0,1)(0,2)
-// (1,0)(1,1)(1,2)
-// (2,0)(2,1)(2,2)
-
         bool checkSquares()
         {
-            int x = 0;
-            int y = 3;
-            int [,] square = new int[9, 9];
-
-            for(int n = 0; n < 3; n++)
+            int[] squareList = new int[9];
+  
+            for(int square = 0; square < 3; square++)
             {
-                x = n * 3;
-                y = (n + 1) * 3;
+                int row = 3*square;
+                int col = 3*square;
+                squareList[0] = sudokuBoard[row+0, col+0]; 
+                squareList[1] = sudokuBoard[row+0, col+1]; 
+                squareList[2] = sudokuBoard[row+0, col+2];
+                squareList[3] = sudokuBoard[row+1, col+0]; 
+                squareList[4] = sudokuBoard[row+1, col+1]; 
+                squareList[5] = sudokuBoard[row+1, col+2];
+                squareList[6] = sudokuBoard[row+2, col+0]; 
+                squareList[7] = sudokuBoard[row+2, col+1]; 
+                squareList[8] = sudokuBoard[row+2, col+2];
 
-                for (int row = x; row < y; row++)
+                for (int i = 0; i < squareList.Length-1; i++)
                 {
-                    for (int col = x; col < y; col++)
+                    for (int n = i+1; n < squareList.Length; n++)
                     {
-
+                        if(squareList[i]==squareList[n])
+                        {
+                            Console.Write(i + " " + n);
+                            return false;
+                        }
                     }
                 }
             }
             return true;
         }
 
-        Console.WriteLine(checkColumns());
-        Console.WriteLine(checkRows());
-        Console.WriteLine(checkSquares());
-
-
-        return isCellsValid && isRowsValid && isColumnsValid;
+        return checkRows() && checkColumns() && checkSquares();
     }
 
     public void Print()
@@ -109,12 +105,12 @@ class Sudoku
     }
 }
 
-// 1, 4, 2,
 class Program
 {
     static void Main()
     {
-        int[,] someSudokuBoard = {
+        int[,] someSudokuBoard = 
+        {
             {3, 1, 6, 5, 7, 8, 4, 9, 2}, 
             {5, 2, 9, 1, 3, 4, 7, 6, 8}, 
             {4, 8, 7, 6, 2, 9, 5, 3, 1}, 
@@ -124,11 +120,11 @@ class Program
             {1, 3, 8, 9, 4, 7, 2, 5, 6},
             {6, 9, 2, 3, 5, 1, 8, 7, 4},
             {7, 4, 5, 2, 8, 6, 3, 1, 9}
-            };
+        };
 
         Sudoku newSudoku = new Sudoku(9, 9, someSudokuBoard);
 
         newSudoku.Print();
-		newSudoku.checkSudoku();
+		Console.WriteLine(newSudoku.checkSudoku());
     }
 }
