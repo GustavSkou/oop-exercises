@@ -1,0 +1,15 @@
+C:\Users\gusta\Desktop\oop exercises\fakultet\obj\Debug\net8.0\fakultet.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gusta\Desktop\oop exercises\fakultet\obj\Debug\net8.0\fakultet.AssemblyInfoInputs.cache
+C:\Users\gusta\Desktop\oop exercises\fakultet\obj\Debug\net8.0\fakultet.AssemblyInfo.cs
+C:\Users\gusta\Desktop\oop exercises\fakultet\obj\Debug\net8.0\fakultet.csproj.CoreCompileInputs.cache
+C:\Users\gusta\Desktop\oop exercises\fakultet\obj\Debug\net8.0\fakultet.sourcelink.json
+C:\Users\gusta\Desktop\oop exercises\fakultet\bin\Debug\net8.0\fakultet.exe
+C:\Users\gusta\Desktop\oop exercises\fakultet\bin\Debug\net8.0\fakultet.deps.json
+C:\Users\gusta\Desktop\oop exercises\fakultet\bin\Debug\net8.0\fakultet.runtimeconfig.json
+C:\Users\gusta\Desktop\oop exercises\fakultet\bin\Debug\net8.0\fakultet.dll
+C:\Users\gusta\Desktop\oop exercises\fakultet\bin\Debug\net8.0\fakultet.pdb
+C:\Users\gusta\Desktop\oop exercises\fakultet\obj\Debug\net8.0\fakultet.dll
+C:\Users\gusta\Desktop\oop exercises\fakultet\obj\Debug\net8.0\refint\fakultet.dll
+C:\Users\gusta\Desktop\oop exercises\fakultet\obj\Debug\net8.0\fakultet.pdb
+C:\Users\gusta\Desktop\oop exercises\fakultet\obj\Debug\net8.0\fakultet.genruntimeconfig.cache
+C:\Users\gusta\Desktop\oop exercises\fakultet\obj\Debug\net8.0\ref\fakultet.dll
