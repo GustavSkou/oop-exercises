@@ -1,0 +1,15 @@
+C:\Users\gusta\Desktop\oop-exercises\potens\obj\Debug\net8.0\potens.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gusta\Desktop\oop-exercises\potens\obj\Debug\net8.0\potens.AssemblyInfoInputs.cache
+C:\Users\gusta\Desktop\oop-exercises\potens\obj\Debug\net8.0\potens.AssemblyInfo.cs
+C:\Users\gusta\Desktop\oop-exercises\potens\obj\Debug\net8.0\potens.csproj.CoreCompileInputs.cache
+C:\Users\gusta\Desktop\oop-exercises\potens\obj\Debug\net8.0\potens.sourcelink.json
+C:\Users\gusta\Desktop\oop-exercises\potens\bin\Debug\net8.0\potens.exe
+C:\Users\gusta\Desktop\oop-exercises\potens\bin\Debug\net8.0\potens.deps.json
+C:\Users\gusta\Desktop\oop-exercises\potens\bin\Debug\net8.0\potens.runtimeconfig.json
+C:\Users\gusta\Desktop\oop-exercises\potens\bin\Debug\net8.0\potens.dll
+C:\Users\gusta\Desktop\oop-exercises\potens\bin\Debug\net8.0\potens.pdb
+C:\Users\gusta\Desktop\oop-exercises\potens\obj\Debug\net8.0\potens.dll
+C:\Users\gusta\Desktop\oop-exercises\potens\obj\Debug\net8.0\refint\potens.dll
+C:\Users\gusta\Desktop\oop-exercises\potens\obj\Debug\net8.0\potens.pdb
+C:\Users\gusta\Desktop\oop-exercises\potens\obj\Debug\net8.0\potens.genruntimeconfig.cache
+C:\Users\gusta\Desktop\oop-exercises\potens\obj\Debug\net8.0\ref\potens.dll
