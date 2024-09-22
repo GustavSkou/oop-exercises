@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gusta\\Desktop\\oop-exercises\\test\\test.csproj": {}
+    "C:\\Users\\gusta\\Desktop\\oop exercises\\fakultet\\fakultet.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gusta\\Desktop\\oop-exercises\\test\\test.csproj": {
+    "C:\\Users\\gusta\\Desktop\\oop exercises\\fakultet\\fakultet.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gusta\\Desktop\\oop-exercises\\test\\test.csproj",
-        "projectName": "test",
-        "projectPath": "C:\\Users\\gusta\\Desktop\\oop-exercises\\test\\test.csproj",
+        "projectUniqueName": "C:\\Users\\gusta\\Desktop\\oop exercises\\fakultet\\fakultet.csproj",
+        "projectName": "fakultet",
+        "projectPath": "C:\\Users\\gusta\\Desktop\\oop exercises\\fakultet\\fakultet.csproj",
         "packagesPath": "C:\\Users\\gusta\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gusta\\Desktop\\oop-exercises\\test\\obj\\",
+        "outputPath": "C:\\Users\\gusta\\Desktop\\oop exercises\\fakultet\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\gusta\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\gusta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
