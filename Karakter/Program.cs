@@ -1,8 +1,7 @@
-﻿public class DumpetException : Exception 
+﻿public class DumpetException : Exception    /* Derived class DumpetExeption as a child of the Exception class */
 {
-    public DumpetException(string message) : base(message)
+    public DumpetException(string message) : base(message) /* child constructor from the Exception constructor(string message) */
     {}
-
 }
 
 class AvgGradeError{
@@ -20,7 +19,6 @@ class AvgGradeError{
         if (grade < 02) {
             throw new DumpetException($"Index {courseId} er dumpet");
         }
-    
         return grade;
     }
 }
