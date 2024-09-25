@@ -1,0 +1,15 @@
+C:\Users\gusta\Desktop\oop exercises\karakter\obj\Debug\net8.0\karakter.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gusta\Desktop\oop exercises\karakter\obj\Debug\net8.0\karakter.AssemblyInfoInputs.cache
+C:\Users\gusta\Desktop\oop exercises\karakter\obj\Debug\net8.0\karakter.AssemblyInfo.cs
+C:\Users\gusta\Desktop\oop exercises\karakter\obj\Debug\net8.0\karakter.csproj.CoreCompileInputs.cache
+C:\Users\gusta\Desktop\oop exercises\karakter\obj\Debug\net8.0\karakter.sourcelink.json
+C:\Users\gusta\Desktop\oop exercises\karakter\bin\Debug\net8.0\karakter.exe
+C:\Users\gusta\Desktop\oop exercises\karakter\bin\Debug\net8.0\karakter.deps.json
+C:\Users\gusta\Desktop\oop exercises\karakter\bin\Debug\net8.0\karakter.runtimeconfig.json
+C:\Users\gusta\Desktop\oop exercises\karakter\bin\Debug\net8.0\karakter.dll
+C:\Users\gusta\Desktop\oop exercises\karakter\bin\Debug\net8.0\karakter.pdb
+C:\Users\gusta\Desktop\oop exercises\karakter\obj\Debug\net8.0\karakter.dll
+C:\Users\gusta\Desktop\oop exercises\karakter\obj\Debug\net8.0\refint\karakter.dll
+C:\Users\gusta\Desktop\oop exercises\karakter\obj\Debug\net8.0\karakter.pdb
+C:\Users\gusta\Desktop\oop exercises\karakter\obj\Debug\net8.0\karakter.genruntimeconfig.cache
+C:\Users\gusta\Desktop\oop exercises\karakter\obj\Debug\net8.0\ref\karakter.dll
