@@ -13,19 +13,21 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gusta\\Desktop\\oop-exercises\\potens\\potens.csproj",
+      "projectUniqueName": "C:\\Users\\gusta\\Desktop\\oop exercises\\potens\\potens.csproj",
       "projectName": "potens",
-      "projectPath": "C:\\Users\\gusta\\Desktop\\oop-exercises\\potens\\potens.csproj",
+      "projectPath": "C:\\Users\\gusta\\Desktop\\oop exercises\\potens\\potens.csproj",
       "packagesPath": "C:\\Users\\gusta\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gusta\\Desktop\\oop-exercises\\potens\\obj\\",
+      "outputPath": "C:\\Users\\gusta\\Desktop\\oop exercises\\potens\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\gusta\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\gusta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
