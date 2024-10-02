@@ -1,11 +1,10 @@
-﻿public class DumpetException : Exception    /* Derived class DumpetExeption as a child of the Exception class */
+﻿public class DumpetException : Exception                    /* Derived class DumpetExeption as a child of the Exception class */
 {
-    public DumpetException(string message) : base(message) /* child constructor from the Exception constructor(string message) */
+    public DumpetException(string message) : base(message)  /* child constructor from the Exception constructor(string message) */
     {}
 }
 
-class AvgGradeError{
-
+class AvgGradeError {
     public int[] grades;
     
     public AvgGradeError(int[] someGrades) {
@@ -13,7 +12,6 @@ class AvgGradeError{
     }
 
     public int GetGrade(int courseId) {
-        
         int grade = grades[courseId];
         
         if (grade < 02) {
