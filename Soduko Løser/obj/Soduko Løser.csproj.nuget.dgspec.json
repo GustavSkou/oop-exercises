@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gusta\\Desktop\\oop exercises\\Object pointer fejl\\New folder.csproj": {}
+    "C:\\Users\\gusta\\Desktop\\oop exercises\\Soduko Løser\\Soduko Løser.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gusta\\Desktop\\oop exercises\\Object pointer fejl\\New folder.csproj": {
+    "C:\\Users\\gusta\\Desktop\\oop exercises\\Soduko Løser\\Soduko Løser.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gusta\\Desktop\\oop exercises\\Object pointer fejl\\New folder.csproj",
-        "projectName": "New folder",
-        "projectPath": "C:\\Users\\gusta\\Desktop\\oop exercises\\Object pointer fejl\\New folder.csproj",
+        "projectUniqueName": "C:\\Users\\gusta\\Desktop\\oop exercises\\Soduko Løser\\Soduko Løser.csproj",
+        "projectName": "Soduko Løser",
+        "projectPath": "C:\\Users\\gusta\\Desktop\\oop exercises\\Soduko Løser\\Soduko Løser.csproj",
         "packagesPath": "C:\\Users\\gusta\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gusta\\Desktop\\oop exercises\\Object pointer fejl\\obj\\",
+        "outputPath": "C:\\Users\\gusta\\Desktop\\oop exercises\\Soduko Løser\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gusta\\AppData\\Roaming\\NuGet\\NuGet.Config",
