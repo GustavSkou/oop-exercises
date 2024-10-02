@@ -110,8 +110,7 @@ class Sudoku
             {
                 if (sudokuBoard[row, col] != 0) //plotting all not 0 value in
                 {
-                    SudokuCell cell1 = new SudokuCell(row, col, sudokuBoard[row, col]);
-                    solutionSudokuBoard[row, col] = cell1;
+                    solutionSudokuBoard[row, col] = new SudokuCell(row, col, sudokuBoard[row, col]);
                     continue;
                 }
                 else
@@ -121,12 +120,10 @@ class Sudoku
 
                 if (possibleNums.Length > 1)
                 {
-                    SudokuCell cell2 = new SudokuCell(row, col, possibleNums);
-                    solutionSudokuBoard[row, col] = cell2;
+                    solutionSudokuBoard[row, col] = new SudokuCell(row, col, possibleNums);
                 }
 
-                SudokuCell cell3 = new SudokuCell(row, col, possibleNums[0]);
-                solutionSudokuBoard[row, col] = cell3;
+                solutionSudokuBoard[row, col] = new SudokuCell(row, col, possibleNums[0]);
 
             }
         }
@@ -168,6 +165,12 @@ class Sudoku
                 possibleNums.Remove(sudokuBoard[row, cellCol]);
             }
         }
+        return possibleNums;
+    }
+
+    HashSet<int> EliminateSquare(HashSet<int> possibleNums, int cellRow, int cellCol)
+    {
+
         return possibleNums;
     }
 
