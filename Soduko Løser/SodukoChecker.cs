@@ -1,10 +1,7 @@
-﻿using System.Drawing;
-
-class Sudoku
+﻿class Sudoku
 {
     public int rows = 9, columns = 9;
-    public bool isValid;
-	public int[,] sudokuBoard, squares;
+	public int[,] sudokuBoard;
 	
     public Sudoku(int[,] sudokuBoard)
     {
