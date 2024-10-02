@@ -1,16 +1,21 @@
-﻿class Sudoku
+﻿class SudokuChecker : Sudoku
 {
-    public int rows = 9, columns = 9;
-	public int[,] sudokuBoard;
-	
-    public Sudoku(int[,] sudokuBoard)
+    public SudokuChecker(int[,] sudokuBoard) : base(sudokuBoard)
     {
 		this.sudokuBoard = sudokuBoard;
     }
 
     public bool IsSudokuSolved()
-    {		
-        bool checkRows()
+    {	
+        foreach(var item in sudokuBoard)
+        {
+            if (item == 0)
+            {
+                return false;
+            }
+        }
+
+        bool CheckRows()
         {
             for (int row = 0; row < rows; row++)
             {
@@ -28,7 +33,7 @@
             }
             return true;
         }
-        bool checkColumns()
+        bool CheckColumns()
         {
             for (int col = 0; col < columns; col++)
             {
@@ -46,7 +51,7 @@
             }
             return true;
         }
-        bool checkSquares()
+        bool CheckSquares()
         {  
             for(int squareRow = 0; squareRow < 3; squareRow++) //move though the 3 rows of squares
             {
@@ -75,7 +80,7 @@
             return true;
         }
 
-        return checkSquares() && checkRows() && checkColumns();
+        return CheckSquares() && CheckRows() && CheckColumns();
     }
 
     public void Print()

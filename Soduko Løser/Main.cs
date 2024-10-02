@@ -4,8 +4,8 @@
     {
         int[,] someSudokuBoard = 
         {
-            {3, 1, 6, 5, 7, 8, 4, 9, 2}, 
-            {5, 2, 9, 1, 3, 4, 7, 6, 8}, 
+            {3, 1, 6, 5, 0, 8, 4, 9, 2}, 
+            {5, 2, 9, 0, 3, 4, 7, 6, 8}, 
             {4, 8, 7, 6, 2, 9, 5, 3, 1}, 
             {2, 6, 3, 4, 1, 5, 9, 8, 7}, 
             {9, 7, 4, 8, 6, 3, 1, 2, 5},
@@ -28,9 +28,11 @@
             */
         };
 
-        Sudoku newSudoku = new Sudoku(someSudokuBoard);
-
-        newSudoku.Print();
-		Console.WriteLine(newSudoku.IsSudokuSolved());
+        Sudoku sudoku = new Sudoku(someSudokuBoard);
+        
+        
+        sudoku.Print();
+		Console.WriteLine(sudoku.SolveSudoku());
+        sudoku.Print();
     }
 }
