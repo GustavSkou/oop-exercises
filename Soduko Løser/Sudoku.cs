@@ -2,6 +2,7 @@ class Sudoku
 {
     public int rows = 9, columns = 9;
     public int[,] sudokuBoard;
+    
 
     public Sudoku(int[,] sudokuBoard)
     {
@@ -100,28 +101,37 @@ class Sudoku
 
     public int[,] SolveSudoku()
     {
-        int[,] solvedSudokuBoard = new int[9,9];
+        SudokuCell[,] solutionSudokuBoard = new SudokuCell[9,9];
+        int[] possibleNums;
+
         for (int row = 0; row < rows; row++)
         {
             for (int col = 0; col < columns; col++)
             {
                 if (sudokuBoard[row, col] != 0) //plotting all not 0 value in
                 {
-                    solvedSudokuBoard[row, col] = sudokuBoard[row, col];
+                    SudokuCell cell1 = new SudokuCell(row, col, sudokuBoard[row, col]);
+                    solutionSudokuBoard[row, col] = cell1;
                     continue;
                 }
-                int[] possibleNums = EliminateNums(row, col);
-
-                if (possibleNums.Length < 1)
+                else
                 {
-
+                    possibleNums = EliminateNums(row, col);
                 }
 
-                solvedSudokuBoard[row, col] = possibleNums[0];
+                if (possibleNums.Length > 1)
+                {
+                    SudokuCell cell2 = new SudokuCell(row, col, possibleNums);
+                    solutionSudokuBoard[row, col] = cell2;
+                }
+
+                SudokuCell cell3 = new SudokuCell(row, col, possibleNums[0]);
+                solutionSudokuBoard[row, col] = cell3;
 
             }
         }
-        sudokuBoard = solvedSudokuBoard;
+
+        sudokuBoard = NormalizeBoard(solutionSudokuBoard);
         return sudokuBoard;
     }
     int[] EliminateNums(int cellRow, int cellCol)
@@ -134,7 +144,6 @@ class Sudoku
         {
             possibleNums = EliminateCollumn(possibleNums, cellCol);
         }
-
         return possibleNums.ToArray();
     }
 
@@ -162,5 +171,16 @@ class Sudoku
         return possibleNums;
     }
 
-
+    int[,] NormalizeBoard(SudokuCell[,] sudokuBoard)
+    {
+        int[,] normalizedBoard = new int[9,9];
+        for (int row = 0; row < rows; row++)
+        {
+            for (int col = 0; col < columns; col++)
+            {
+                normalizedBoard[row,col] = sudokuBoard[row, col].value;
+            }
+        }
+        return normalizedBoard;
+    }
 }
