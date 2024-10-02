@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gusta\\Desktop\\oop exercises\\oop exercises.csproj": {}
+    "C:\\Users\\gusta\\Desktop\\oop exercises\\karakter\\karakter.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gusta\\Desktop\\oop exercises\\oop exercises.csproj": {
+    "C:\\Users\\gusta\\Desktop\\oop exercises\\karakter\\karakter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gusta\\Desktop\\oop exercises\\oop exercises.csproj",
-        "projectName": "oop exercises",
-        "projectPath": "C:\\Users\\gusta\\Desktop\\oop exercises\\oop exercises.csproj",
+        "projectUniqueName": "C:\\Users\\gusta\\Desktop\\oop exercises\\karakter\\karakter.csproj",
+        "projectName": "karakter",
+        "projectPath": "C:\\Users\\gusta\\Desktop\\oop exercises\\karakter\\karakter.csproj",
         "packagesPath": "C:\\Users\\gusta\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gusta\\Desktop\\oop exercises\\obj\\",
+        "outputPath": "C:\\Users\\gusta\\Desktop\\oop exercises\\karakter\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gusta\\AppData\\Roaming\\NuGet\\NuGet.Config",
