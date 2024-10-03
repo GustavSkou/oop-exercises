@@ -7,7 +7,6 @@ C:\Users\gusta\Desktop\oop exercises\Soduko Løser\obj\Debug\net8.0\Soduko Løse
 C:\Users\gusta\Desktop\oop exercises\Soduko Løser\obj\Debug\net8.0\Soduko Løser.AssemblyInfoInputs.cache
 C:\Users\gusta\Desktop\oop exercises\Soduko Løser\obj\Debug\net8.0\Soduko Løser.AssemblyInfo.cs
 C:\Users\gusta\Desktop\oop exercises\Soduko Løser\obj\Debug\net8.0\Soduko Løser.csproj.CoreCompileInputs.cache
-C:\Users\gusta\Desktop\oop exercises\Soduko Løser\obj\Debug\net8.0\Soduko Løser.sourcelink.json
 C:\Users\gusta\Desktop\oop exercises\Soduko Løser\obj\Debug\net8.0\Soduko Løser.dll
 C:\Users\gusta\Desktop\oop exercises\Soduko Løser\obj\Debug\net8.0\refint\Soduko Løser.dll
 C:\Users\gusta\Desktop\oop exercises\Soduko Løser\obj\Debug\net8.0\Soduko Løser.pdb
