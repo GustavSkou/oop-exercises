@@ -5,7 +5,7 @@ class Sudoku
     public int[,][] squares = new int[3,3][];
     public Sudoku(int[,] someSudokuBoard)
     {
-        squares[0,0] = new int[9];
+        /*squares[0,0] = new int[9];
         squares[0,1] = new int[9];
         squares[0,2] = new int[9];
         squares[1,0] = new int[9];
@@ -13,7 +13,7 @@ class Sudoku
         squares[1,2] = new int[9];
         squares[2,0] = new int[9];
         squares[2,1] = new int[9];
-        squares[2,2] = new int[9];
+        squares[2,2] = new int[9];*/
 
         for (int row = 0; row < rows; row++)
         {
@@ -23,7 +23,7 @@ class Sudoku
             }
         }
 
-        for (int squareRow = 0; squareRow < 3; squareRow++) //move though the 3 rows of squares
+        /*for (int squareRow = 0; squareRow < 3; squareRow++) //move though the 3 rows of squares
             {
                 for (int squareCol = 0; squareCol < 3; squareCol++) //move though the 3 columns of squares
                 {
@@ -35,7 +35,7 @@ class Sudoku
                         }
                     }
                 }
-            }       
+            }*/       
     }
 
     public bool IsSudokuSolved()
@@ -192,7 +192,6 @@ class Sudoku
 
     HashSet<int> EliminateSquare(HashSet<int> possibleValues, int cellRow, int cellCol)
     {
-
         return possibleValues;
     }
 
