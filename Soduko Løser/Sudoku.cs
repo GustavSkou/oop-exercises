@@ -3,6 +3,7 @@ class Sudoku
     public int rows = 9, columns = 9;
     public SudokuCell[,] sudokuBoard = new SudokuCell[9,9];
     public int[,][] squares = new int[3,3][];
+    public int timesTried = 0;
     public Sudoku(int[,] someSudokuBoard)
     {
         squares[0,0] = new int[9];
@@ -157,12 +158,12 @@ class Sudoku
             }
         }
         
-        /*if (!IsBoardFilled())
+        if (!IsBoardFilled() && ++timesTried < 10)
         {
             Print();
             Console.WriteLine("");
             return SolveSudoku();
-        }*/
+        }
 
         return NormalizeBoard(sudokuBoard);
     }
