@@ -8,19 +8,24 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\gusta\\.nuget\\packages\\": {}
+    "C:\\Users\\gusta\\.nuget\\packages\\": {},
+    "E:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gusta\\Desktop\\oop exercises\\Soduko Løser\\Soduko Løser.csproj",
+      "projectUniqueName": "C:\\Users\\gusta\\Desktop\\oop-exercises\\Soduko Løser\\Soduko Løser.csproj",
       "projectName": "Soduko Løser",
-      "projectPath": "C:\\Users\\gusta\\Desktop\\oop exercises\\Soduko Løser\\Soduko Løser.csproj",
+      "projectPath": "C:\\Users\\gusta\\Desktop\\oop-exercises\\Soduko Løser\\Soduko Løser.csproj",
       "packagesPath": "C:\\Users\\gusta\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gusta\\Desktop\\oop exercises\\Soduko Løser\\obj\\",
+      "outputPath": "C:\\Users\\gusta\\Desktop\\oop-exercises\\Soduko Løser\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "E:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\gusta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
