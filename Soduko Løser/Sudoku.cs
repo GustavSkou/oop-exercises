@@ -1,10 +1,29 @@
+using System.Collections;
+using System.Runtime.Serialization;
+
 class Sudoku
 {
     public int rows = 9, columns = 9;
     public SudokuCell[,] sudokuBoard = new SudokuCell[9,9];
+    public SudokuCell[,] backtrackingBoard = new SudokuCell[9,9];
     public int[,][] squares = new int[3,3][];
-    public int timesTried = 0;
+    public bool isBackTracking = false;
     public Sudoku(int[,] someSudokuBoard)
+    {
+        copySudokuIntoBoard(someSudokuBoard);
+        FillSquares();
+    }
+    void copySudokuIntoBoard(int[,] someSudokuBoard)
+    {
+        for (int row = 0; row < rows; row++)
+        {
+            for (int col = 0; col < columns; col++)
+            {
+                this.sudokuBoard[row, col] = new SudokuCell(row, col, someSudokuBoard[row, col]);  
+            }
+        }
+    }
+    void FillSquares()
     {
         squares[0,0] = new int[9];
         squares[0,1] = new int[9];
@@ -15,15 +34,6 @@ class Sudoku
         squares[2,0] = new int[9];
         squares[2,1] = new int[9];
         squares[2,2] = new int[9];
-
-        for (int row = 0; row < rows; row++)
-        {
-            for (int col = 0; col < columns; col++)
-            {
-                this.sudokuBoard[row, col] = new SudokuCell(row, col, someSudokuBoard[row, col]);  
-            }
-        }
-        
         for (int squareRow = 0; squareRow < 3; squareRow++)
         {
             for (int squareCol = 0; squareCol < 3; squareCol++)
@@ -40,7 +50,6 @@ class Sudoku
             }
         }
     }
-
     public bool IsSudokuSolved()
     { 
         return IsBoardFilled() && CheckSquares() && CheckRows() && CheckColumns();
@@ -66,7 +75,7 @@ class Sudoku
                 {
                     if (sudokuBoard[row, col].value == sudokuBoard[row, toCheck].value)     //not valid
                     {
-                        Console.WriteLine($"row {row} \ncolumn {col}");
+                        Console.WriteLine($"Column mistake \nrow:{row}, column:{col}\nrow:{row}, column:{toCheck}");
                         return false;
                     }
                 }
@@ -84,7 +93,7 @@ class Sudoku
                 {
                     if (sudokuBoard[row, col].value == sudokuBoard[toCheck, col].value)     //not valid
                     {
-                        Console.WriteLine($"row {row} \ncolumn {col}");
+                        Console.WriteLine($"Column mistake \nrow:{row}, column:{col}\nrow:{toCheck}, column:{col}");
                         return false;
                     }
                 }
@@ -108,6 +117,7 @@ class Sudoku
                             {
                                 if (sudokuBoard[row, col].value == sudokuBoard[rowToCheck, colToCheck].value && (row != rowToCheck && columns != colToCheck))
                                 {
+                                    Console.WriteLine(($"Square mistake\nrow:{row},column{col}\nrow:{rowToCheck}, column:{colToCheck}"));
                                     return false;
                                 }
                             }
@@ -135,8 +145,8 @@ class Sudoku
 
     public int[,] SolveSudoku()
     {
-        int[] possibleValues;
-
+        ArrayList possibleValues = new ArrayList();
+        
         for (int row = 0; row < rows; row++)
         {
             for (int col = 0; col < columns; col++)
@@ -145,32 +155,74 @@ class Sudoku
                 {
                     possibleValues = EliminateValues(row, col);
 
-                    if (possibleValues.Length > 1) // If there is more than 1 possiable values for a cell then all the values are saved
+                    if (possibleValues.Count > 1) // If there is more than 1 possiable values for a cell then all the values are saved
                     {
                         sudokuBoard[row, col].possibleValues = possibleValues;
                     }
                     else    // We know there is only one possiable value, and the cell value is set 
                     {
-                        sudokuBoard[row, col].value = possibleValues[0];
+                        sudokuBoard[row, col].value = (int) possibleValues[0];
                         return SolveSudoku();   //Go back to the start then a new value is set
                     }
                 }
             }
         }
         
-        if (!IsBoardFilled() && ++timesTried < 10)
+        backtrackingBoard = sudokuBoard;
+
+        if (isBackTracking)
         {
-            Print();
-            Console.WriteLine("");
-            return SolveSudoku();
+            Guess();
+        }
+       
+        if (!isBackTracking)
+        {
+            StartBackTracking();
+        }
+        
+        if (!IsSudokuSolved())
+        {
+            
         }
 
         return NormalizeBoard(sudokuBoard);
     }
-    int[] EliminateValues(int cellRow, int cellCol)
+    void StartBackTracking()
+    {
+        isBackTracking = true;
+        for (int row = 0; row < rows; row++)
+        {
+            for (int col = 0; col < columns; col++)
+            {
+                if (sudokuBoard[row, col].value == 0)                                               // If the first cell with no value
+                {
+                    sudokuBoard[row, col].value = (int) sudokuBoard[row, col].possibleValues[0];    // give it, its first possiable value
+                    sudokuBoard[row, col].possibleValues.RemoveAt(0);
+                    SolveSudoku();                                                                  //try to solve again
+                }
+            }
+        }
+    }
+    void Guess()
+    {
+        for (int row = 0; row < rows; row++)
+        {
+            for (int col = 0; col < columns; col++)
+            {
+                if (sudokuBoard[row, col].value == 0) // If the first cell with no value
+                {
+                    sudokuBoard[row, col].value = (int) sudokuBoard[row, col].possibleValues[0];   // give it, its first possiable value
+                    SolveSudoku();                                                                  //try to solve again
+                }
+            }
+        }
+    }
+
+
+    ArrayList EliminateValues(int cellRow, int cellCol)
     {
         HashSet<int> possibleValues = new HashSet<int>() {1, 2, 3, 4, 5, 6, 7, 8, 9};
-
+        
         possibleValues = EliminateRow(possibleValues, cellRow);
         if (1 < possibleValues.Count)
         {
@@ -180,8 +232,8 @@ class Sudoku
         {
             possibleValues = EliminateSquare(possibleValues, cellRow, cellCol);
         }
-
-        return possibleValues.ToArray();
+        ArrayList result = new ArrayList (possibleValues.ToArray());
+        return result;
     }
 
     HashSet<int> EliminateRow(HashSet<int> possibleValues, int cellRow)
