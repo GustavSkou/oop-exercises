@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Soduko Løser", "Soduko Løser.csproj", "{1A417B2A-7555-429B-AD73-CC0440A236CE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "..\..\ConsoleApp1\ConsoleApp1.csproj", "{A1399D98-37A8-487D-86CF-C66EA4BDF0E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{1A417B2A-7555-429B-AD73-CC0440A236CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A417B2A-7555-429B-AD73-CC0440A236CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A417B2A-7555-429B-AD73-CC0440A236CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1399D98-37A8-487D-86CF-C66EA4BDF0E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1399D98-37A8-487D-86CF-C66EA4BDF0E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1399D98-37A8-487D-86CF-C66EA4BDF0E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1399D98-37A8-487D-86CF-C66EA4BDF0E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

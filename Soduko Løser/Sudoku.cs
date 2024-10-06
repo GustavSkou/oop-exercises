@@ -189,11 +189,12 @@ class Sudoku
     {
         StartEliminateLogik(sudokuBoard);
 
-        if(!IsSudokuSolved(sudokuBoard) || !IsBoardFilled(sudokuBoard))
+        if(!IsBoardFilled(sudokuBoard))
         {
-            StartBackTracking(sudokuBoard);
+            sudokuBoard = StartBackTracking(sudokuBoard);
         }
-
+        
+        Console.WriteLine($"Is sudoku solved? {IsSudokuSolved(sudokuBoard)}");
         return NormalizeBoard(sudokuBoard);
     }
 
@@ -223,40 +224,36 @@ class Sudoku
     }
     SudokuCell[,] StartBackTracking(SudokuCell[,] sudokuBoard)
     {   
-        SudokuCell[,] backtrackingBoard = sudokuBoard;
-        backTrackingBoards.Add(backtrackingBoard);
-        int end = backTrackingBoards.Count - 1;
-        var curruntBoard = backTrackingBoards[end];
-
+        SudokuCell[,] save = new SudokuCell[,](sudokuBoard);
         for (int row = 0; row < rows; row++)
         {
             for (int col = 0; col < columns; col++)
             {
-                if (curruntBoard[row, col].value == 0)                                               // If the first cell with no value
+                if (sudokuBoard[row,col].value == 0)
                 {
-                    curruntBoard[row, col].value = (int) sudokuBoard[row, col].possibleValues[0];    // give it, its first possiable value
-                    curruntBoard[row, col].possibleValues.RemoveAt(0);
+                    int value = (int) sudokuBoard[row,col].possibleValues[0];
+                    sudokuBoard[row,col].value = value;
+                    sudokuBoard[row,col].possibleValues.RemoveAt(0);
+                    sudokuBoardSave[row,col].possibleValues.RemoveAt(0);
 
-                    StartEliminateLogik(curruntBoard);                                                 //try to solve again
-                
-                    Print(curruntBoard);
-                    Console.WriteLine(backTrackingBoards.Count());
+                    StartEliminateLogik(sudokuBoard);
 
-                    if (!IsSudokuSolved(curruntBoard))
+                    if (!IsSudokuSolved(sudokuBoard))
                     {
-                        backTrackingBoards.RemoveAt(backTrackingBoards.Count-1);
-                        StartBackTracking(curruntBoard);
+                        StartBackTracking(sudokuBoardSave);
                     }
-
-                    if (!IsBoardFilled(curruntBoard))
+                    if(!IsBoardFilled(sudokuBoard))
                     {
-                        StartBackTracking(curruntBoard);
+                        StartBackTracking(sudokuBoard);
+                    }
+                    if(IsSudokuSolved(sudokuBoard))
+                    {
+                        return sudokuBoard;
                     }
                 }
             }
         }
-
-        return backTrackingBoards[0];
+        return sudokuBoard;
     }
 
     ArrayList EliminateValues(SudokuCell[,] sudokuBoard, int cellRow, int cellCol)
@@ -317,6 +314,8 @@ class Sudoku
 
     int[,] NormalizeBoard(SudokuCell[,] sudokuBoard)
     {
+        this.sudokuBoard = sudokuBoard;
+
         int[,] normalizedBoard = new int[9,9];
         for (int row = 0; row < rows; row++)
         {
