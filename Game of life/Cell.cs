@@ -7,8 +7,8 @@ Any dead cell with exactly three live neighbours becomes a live cell, as if by r
 
 class Cell
 {
-    public bool alive = false, nextState;
-    protected List<Cell> neighbors = new List<Cell>();
+    public bool currentState = false, nextState;
+    protected int aliveNeighbors;
     public int row, column;
     
     public Cell(int row, int column)
@@ -16,9 +16,9 @@ class Cell
         this.row = row;
         this.column = column;
     }
-    public void GetNeighbors(Cell cell, Cell[,] world)
+    public int GetAliveNeighbors(Cell cell, Cell[,] world)
     {
-        cell.neighbors.Clear();
+        aliveNeighbors = 0;
         for (int x = -1; x < 2; x++)
         {
             if (cell.row + x < 0 || cell.row + x >= world.GetLength(0) || cell.row == x) // Out of range or itself
@@ -33,50 +33,52 @@ class Cell
                     continue;
                 }
                 
-                cell.neighbors.Add( world[cell.row+x,cell.column+y]);
+                if (world[cell.row + x,cell.column + y].currentState)
+                {
+                    aliveNeighbors++;
+                }
             }
         }
+        return aliveNeighbors;
     }
-
-    public int GetAliveNeighbors(Cell cell)
-    {
-        int count = 0;
-        foreach(Cell neighbor in cell.neighbors)
-        {
-            count = neighbor.alive ? count++ : count;
-        }
-        return count;
-    }
-
     public void GetNextState(Cell cell, Cell[,] world) //update
     {
-        GetNeighbors(cell, world);
-
-        if (!alive && GetAliveNeighbors(cell) == 3)
+        if (!currentState && GetAliveNeighbors(cell, world) == 3)
         {
             ChangeNextState();
             return;
         }
 
-        if (alive && (GetAliveNeighbors(cell) < 2 || GetAliveNeighbors(cell) > 3))
+        if (currentState && (GetAliveNeighbors(cell, world) < 2 || GetAliveNeighbors(cell, world) > 3))
         {
             ChangeNextState();
             return;
         }
-    }
 
-    public void SetNextState()
-    {
-        alive = nextState;
-    }
-
-    public void ChangeNextState()
-    {
-        nextState = !alive;
+        if (currentState && (GetAliveNeighbors(cell, world) == 2 || GetAliveNeighbors(cell, world) == 3))
+        {
+            KeepNextState();
+            return;
+        }
     }
 
     public void ChangeState()
     {
-        alive = !alive;
+        currentState = !currentState;
+    }
+
+    public void KeepNextState()
+    {
+        nextState = currentState;
+    }
+    public void ChangeNextState()
+    {
+        nextState = !currentState;
+    }
+
+    
+    public void SetNextState()
+    {
+        currentState = nextState;
     }
 }

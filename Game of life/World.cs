@@ -47,7 +47,7 @@ class World
 
             for(int column = 0; column < columns; column++)
             {
-                char chellToChar = world[row,column].alive ? 'X' : 'O';
+                char chellToChar = world[row,column].currentState ? 'X' : 'O';
                 Console.Write(chellToChar);
             }
         }
