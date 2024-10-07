@@ -29,7 +29,7 @@ class World
     {
         foreach(Cell cell in world)
         {
-            cell.GetNextState(this);
+            cell.GetNextState(cell, world);
         }
         foreach(Cell cell in world)
         {

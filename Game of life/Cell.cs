@@ -16,57 +16,49 @@ class Cell
         this.row = row;
         this.column = column;
     }
-    public void GetNeighbors(World world)
+    public void GetNeighbors(Cell cell, Cell[,] world)
     {
-        neighbors.Clear();
-
-        
-            for(int row = this.row - 1; row < this.row + 1; row++)
+        cell.neighbors.Clear();
+        for (int x = -1; x < 2; x++)
+        {
+            if (cell.row + x < 0 || cell.row + x >= world.GetLength(0) || cell.row == x) // Out of range or itself
             {
-                if (row < 0 || row >= world.rows)
+                continue;
+            }
+            
+            for(int y = -1; y < 2; y++)
+            {
+                if (cell.column + y < 0 || cell.column + y >= world.GetLength(1) || cell.column == y) // Out of range of itself
                 {
                     continue;
                 }
                 
-                for(int column = this.column - 1; column < this.column + 1; column++)
-                {
-                    if (column < 0 || column >= world.columns)
-                    {
-                        continue;
-                    }
-
-                    if (this.row == row && this.column == column)
-                    {
-                        continue;
-                    }
-                    neighbors.Add(new Cell(row, column));
-                }
+                cell.neighbors.Add( world[cell.row+x,cell.column+y]);
             }
-        
-        
+        }
     }
 
-    public int GetAliveNeighbors()
+    public int GetAliveNeighbors(Cell cell)
     {
         int count = 0;
-        foreach(Cell cell in neighbors)
+        foreach(Cell neighbor in cell.neighbors)
         {
-            count = cell.alive ? count++ : count;
+            count = neighbor.alive ? count++ : count;
         }
         return count;
     }
 
-    public void GetNextState(World world) //update
+    public void GetNextState(Cell cell, Cell[,] world) //update
     {
-        GetNeighbors(world);
+        GetNeighbors(cell, world);
 
-        if (!alive && neighbors.Count == 3)
+        if (!alive && GetAliveNeighbors(cell) == 3)
         {
             ChangeNextState();
             return;
         }
 
-        if (alive && (neighbors.Count < 2 || neighbors.Count > 3))
+        if (alive && (GetAliveNeighbors(cell) < 2 || GetAliveNeighbors(cell) > 3))
         {
             ChangeNextState();
             return;
