@@ -7,14 +7,43 @@ Any dead cell with exactly three live neighbours becomes a live cell, as if by r
 
 class Cell
 {
-    public bool alive = false;
-    protected Cell[] neighbors = new Cell[8];
+    public bool alive = false, nextState;
+    protected List<Cell> neighbors = new List<Cell>();
     public int row, column;
     
     public Cell(int row, int column)
     {
         this.row = row;
         this.column = column;
+    }
+    public void GetNeighbors(World world)
+    {
+        neighbors.Clear();
+
+        
+            for(int row = this.row - 1; row < this.row + 1; row++)
+            {
+                if (row < 0 || row >= world.rows)
+                {
+                    continue;
+                }
+                
+                for(int column = this.column - 1; column < this.column + 1; column++)
+                {
+                    if (column < 0 || column >= world.columns)
+                    {
+                        continue;
+                    }
+
+                    if (this.row == row && this.column == column)
+                    {
+                        continue;
+                    }
+                    neighbors.Add(new Cell(row, column));
+                }
+            }
+        
+        
     }
 
     public int GetAliveNeighbors()
@@ -27,17 +56,31 @@ class Cell
         return count;
     }
 
-    public void UpdateCell()
+    public void GetNextState(World world) //update
     {
-        if (!alive && GetAliveNeighbors() == 3)
+        GetNeighbors(world);
+
+        if (!alive && neighbors.Count == 3)
         {
-            ChangeState();
+            ChangeNextState();
+            return;
         }
 
-        if (alive && (GetAliveNeighbors() < 2 || GetAliveNeighbors() > 3))
+        if (alive && (neighbors.Count < 2 || neighbors.Count > 3))
         {
-            ChangeState();
+            ChangeNextState();
+            return;
         }
+    }
+
+    public void SetNextState()
+    {
+        alive = nextState;
+    }
+
+    public void ChangeNextState()
+    {
+        nextState = !alive;
     }
 
     public void ChangeState()
