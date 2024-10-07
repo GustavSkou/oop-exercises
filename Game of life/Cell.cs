@@ -16,30 +16,36 @@ class Cell
         this.row = row;
         this.column = column;
     }
-    public int GetAliveNeighbors(Cell cell, Cell[,] world)
+    public int GetAliveNeighbors(Cell cell, Cell[,] world) 
     {
-        aliveNeighbors = 0;
-        for (int x = -1; x < 2; x++)
+    int aliveNeighbors = 0;
+    
+    for (int row = -1; row <= 1; row++)
+    {
+        for (int column = -1; column <= 1; column++)
         {
-            if (cell.row + x < 0 || cell.row + x >= world.GetLength(0) || cell.row == x) // Out of range or itself
+            
+            if (row == 0 && column == 0) // Skip the cell itself
             {
                 continue;
             }
-            
-            for(int y = -1; y < 2; y++)
+
+            int neighborRow = cell.row + row;
+            int neighborColumn = cell.column + column;
+
+            if (neighborRow < 0 || neighborRow >= world.GetLength(0) || neighborColumn < 0 || neighborColumn >= world.GetLength(1)) // Check for out off bounds
             {
-                if (cell.column + y < 0 || cell.column + y >= world.GetLength(1) || cell.column == y) // Out of range of itself
-                {
-                    continue;
-                }
-                
-                if (world[cell.row + x,cell.column + y].currentState)
-                {
-                    aliveNeighbors++;
-                }
+                continue;
+            }
+
+            if (world[neighborRow, neighborColumn].currentState)
+            {
+                aliveNeighbors++;
             }
         }
-        return aliveNeighbors;
+    }
+    
+    return aliveNeighbors;
     }
     public void GetNextState(Cell cell, Cell[,] world) //update
     {
