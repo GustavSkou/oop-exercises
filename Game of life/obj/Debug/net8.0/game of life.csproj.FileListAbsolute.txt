@@ -1,0 +1,15 @@
+C:\Users\gusta\Desktop\oop exercises\Game of life\bin\Debug\net8.0\game of life.exe
+C:\Users\gusta\Desktop\oop exercises\Game of life\bin\Debug\net8.0\game of life.deps.json
+C:\Users\gusta\Desktop\oop exercises\Game of life\bin\Debug\net8.0\game of life.runtimeconfig.json
+C:\Users\gusta\Desktop\oop exercises\Game of life\bin\Debug\net8.0\game of life.dll
+C:\Users\gusta\Desktop\oop exercises\Game of life\bin\Debug\net8.0\game of life.pdb
+C:\Users\gusta\Desktop\oop exercises\Game of life\obj\Debug\net8.0\game of life.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gusta\Desktop\oop exercises\Game of life\obj\Debug\net8.0\game of life.AssemblyInfoInputs.cache
+C:\Users\gusta\Desktop\oop exercises\Game of life\obj\Debug\net8.0\game of life.AssemblyInfo.cs
+C:\Users\gusta\Desktop\oop exercises\Game of life\obj\Debug\net8.0\game of life.csproj.CoreCompileInputs.cache
+C:\Users\gusta\Desktop\oop exercises\Game of life\obj\Debug\net8.0\game of life.sourcelink.json
+C:\Users\gusta\Desktop\oop exercises\Game of life\obj\Debug\net8.0\game of life.dll
+C:\Users\gusta\Desktop\oop exercises\Game of life\obj\Debug\net8.0\refint\game of life.dll
+C:\Users\gusta\Desktop\oop exercises\Game of life\obj\Debug\net8.0\game of life.pdb
+C:\Users\gusta\Desktop\oop exercises\Game of life\obj\Debug\net8.0\game of life.genruntimeconfig.cache
+C:\Users\gusta\Desktop\oop exercises\Game of life\obj\Debug\net8.0\ref\game of life.dll
