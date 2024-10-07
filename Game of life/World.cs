@@ -1,8 +1,6 @@
-using System.Threading.Tasks;
-
 class World
 {
-    public Cell[,] world, updateWorld;
+    public Cell[,] world;
     public int rows, columns;
     public int runTimes;
 
@@ -12,14 +10,12 @@ class World
         this.rows = rows;
         this.columns = columns;
         this.world = new Cell[rows, columns];
-        this.updateWorld = new Cell[rows, columns];
 
         for(int row = 0; row < rows; row++)
         {
             for(int column = 0; column < columns; column++)
             {
                 world[row,column] = new Cell(row, column);
-                updateWorld[row,column] = new Cell(row, column);
             }
         }
     }
@@ -35,7 +31,6 @@ class World
     public void ChangeCell(int row, int column)
     {
         world[row, column].ChangeState();
-        updateWorld[row, column].ChangeState();
     }
 
     public void Update()
