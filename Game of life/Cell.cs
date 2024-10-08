@@ -20,30 +20,28 @@ class Cell
     {
         neighbors.Clear();
 
-        
-            for(int row = this.row - 1; row < this.row + 1; row++)
+        for(int row = this.row - 1; row < this.row + 1; row++)
+        {
+            if (row < 0 || row >= world.rows)
             {
-                if (row < 0 || row >= world.rows)
+                continue;
+            }
+
+            for(int column = this.column - 1; column < this.column + 1; column++)
+            {
+                if (column < 0 || column >= world.columns)
+                {
+                    continue;
+                }
+
+                if (this.row == row && this.column == column)
                 {
                     continue;
                 }
                 
-                for(int column = this.column - 1; column < this.column + 1; column++)
-                {
-                    if (column < 0 || column >= world.columns)
-                    {
-                        continue;
-                    }
-
-                    if (this.row == row && this.column == column)
-                    {
-                        continue;
-                    }
-                    neighbors.Add(new Cell(row, column));
-                }
-            }
-        
-        
+                neighbors.Add(new Cell(row, column));
+            }   //adding the wrong cells
+        }
     }
 
     public int GetAliveNeighbors()
