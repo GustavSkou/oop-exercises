@@ -26,10 +26,28 @@ class Cell
                 int neighborRow = cell.row + row;
                 int neighborColumn = cell.column + column;
 
-                if (neighborRow < 0 || neighborRow >= world.GetLength(0) || neighborColumn < 0 || neighborColumn >= world.GetLength(1)) // Check for out off bounds
+                
+
+                if (neighborRow < 0) // Check for out off bounds
                 {
-                    continue;
+                    neighborRow = world.GetLength(0) - 1;
                 }
+                if (neighborRow >= world.GetLength(0))
+                {
+                    neighborRow = 0;
+                }
+
+
+                if (neighborColumn < 0)
+                {
+                    neighborColumn = world.GetLength(1) - 1;
+                }
+                if (neighborColumn >= world.GetLength(1))
+                {
+                    neighborColumn = 0;
+                }
+
+                
 
                 if (world[neighborRow, neighborColumn].currentState)
                 {
@@ -85,7 +103,7 @@ class Cell
     {
         if (cell.row >= world.GetLength(0))
         {
-            
+
         }
 
         if (cell.column >= world.GetLength(1))

@@ -25,7 +25,7 @@ class World : InfoBar
         {
             Update();
             Print();
-            Thread.Sleep(250);
+            Thread.Sleep(50);
         }
     }
     public void ChangeCell(int row, int column)
