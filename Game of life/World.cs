@@ -3,6 +3,7 @@ class World : InfoBar
     public Cell[,] world;
     private int rows, columns;
     private int runTimes;
+    private int speed = 250;
 
     public World(int rows, int columns, int runTimes)
     {
@@ -25,7 +26,7 @@ class World : InfoBar
         {
             Update();
             Print();
-            Thread.Sleep(50);
+            Thread.Sleep(speed);
         }
     }
     public void ChangeCell(int row, int column)
@@ -74,4 +75,89 @@ class World : InfoBar
             }
         }  
     }
+    private void Print(int selectedRow, int selectedColumn)
+    {
+        Console.Clear();
+
+        DisplayInfoBar();
+
+        for(int row = 0; row < rows; row++)
+        {
+            Console.WriteLine();
+
+            for(int column = 0; column < columns; column++)
+            {
+                char cellToChar;
+                if (world[row, column].currentState)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    cellToChar = '#';
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.White;
+                    cellToChar = '.';
+                }
+                if (row == selectedRow && column == selectedColumn)
+                {
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                }
+                Console.Write($" {cellToChar} ");
+            }
+        }  
+    }
+    public void SetSpeed(int milliseconds)
+    {
+        speed = milliseconds;
+    }
+
+    public void StartBuilder()
+    {
+        Print();
+        GetInput();   
+    }
+
+    protected void GetInput()
+    {
+        int row = 0, column = 0;
+        bool isBuilding = true;
+
+        while(isBuilding)
+        {
+            var movement = Console.ReadKey(false).Key;
+
+            switch(movement)
+            {
+                case ConsoleKey.UpArrow:
+                    row--;
+                break;
+
+                case ConsoleKey.LeftArrow:
+                    column--;
+                break;
+
+                case ConsoleKey.RightArrow:
+                    column++;
+                break;
+
+                case ConsoleKey.DownArrow:
+                    row++;
+                break;
+
+                case ConsoleKey.M:
+                    isBuilding = !isBuilding; 
+                break;
+
+                case ConsoleKey.Spacebar:
+                    ChangeCell(row, column);
+                break;
+
+                default:
+                break;
+            }
+            Print(row, column);
+        
+        }
+    }
+
 }
