@@ -1,14 +1,7 @@
-/*
-Any live cell with fewer than two live neighbours dies, as if by underpopulation.  1 - 0
-Any live cell with two or three live neighbours lives on to the next generation.    1 - 1
-Any live cell with more than three live neighbours dies, as if by overpopulation.   1 - 0
-Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.    0 - 1
-*/
-
 class Cell
 {
-    public bool alive = false, nextState;
-    protected List<Cell> neighbors = new List<Cell>();
+    public bool currentState = false, nextState;
+    protected int aliveNeighbors;
     public int row, column;
     
     public Cell(int row, int column)
@@ -16,73 +9,75 @@ class Cell
         this.row = row;
         this.column = column;
     }
-    public void GetNeighbors(World world)
+    
+    public int GetAliveNeighbors(Cell cell, Cell[,] world) 
     {
-        neighbors.Clear();
-
-        for(int row = this.row - 1; row < this.row + 1; row++)
+        aliveNeighbors = 0;
+        
+        for (int row = -1; row <= 1; row++)
         {
-            if (row < 0 || row >= world.rows)
+            for (int column = -1; column <= 1; column++)
             {
-                continue;
+                if (row == 0 && column == 0) // Skip the cell itself
+                {
+                    continue;
+                }
+
+                int neighborRow = cell.row + row;
+                int neighborColumn = cell.column + column;
+
+                if (neighborRow < 0 || neighborRow >= world.GetLength(0) || neighborColumn < 0 || neighborColumn >= world.GetLength(1)) // Check for out off bounds
+                {
+                    continue;
+                }
+
+                if (world[neighborRow, neighborColumn].currentState)
+                {
+                    aliveNeighbors++;
+                }
             }
-
-            for(int column = this.column - 1; column < this.column + 1; column++)
-            {
-                if (column < 0 || column >= world.columns)
-                {
-                    continue;
-                }
-
-                if (this.row == row && this.column == column)
-                {
-                    continue;
-                }
-                
-                neighbors.Add(new Cell(row, column));
-            }   //adding the wrong cells
         }
+    return aliveNeighbors;
     }
 
-    public int GetAliveNeighbors()
+    public void GetNextState(Cell cell, Cell[,] world) //update
     {
-        int count = 0;
-        foreach(Cell cell in neighbors)
-        {
-            count = cell.alive ? count++ : count;
-        }
-        return count;
-    }
-
-    public void GetNextState(World world) //update
-    {
-        GetNeighbors(world);
-
-        if (!alive && neighbors.Count == 3)
+        if (!currentState && GetAliveNeighbors(cell, world) == 3)
         {
             ChangeNextState();
             return;
         }
 
-        if (alive && (neighbors.Count < 2 || neighbors.Count > 3))
+        if (currentState && (GetAliveNeighbors(cell, world) < 2 || GetAliveNeighbors(cell, world) > 3))
         {
             ChangeNextState();
             return;
         }
-    }
 
-    public void SetNextState()
-    {
-        alive = nextState;
-    }
-
-    public void ChangeNextState()
-    {
-        nextState = !alive;
+        if (currentState && (GetAliveNeighbors(cell, world) == 2 || GetAliveNeighbors(cell, world) == 3))
+        {
+            KeepNextState();
+            return;
+        }
     }
 
     public void ChangeState()
     {
-        alive = !alive;
+        currentState = !currentState;
+    }
+
+    public void KeepNextState()
+    {
+        nextState = currentState;
+    }
+
+    public void ChangeNextState()
+    {
+        nextState = !currentState;
+    }
+
+    public void SetNextState()
+    {
+        currentState = nextState;
     }
 }
