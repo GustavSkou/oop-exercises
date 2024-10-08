@@ -1,8 +1,8 @@
-class World
+class World : InfoBar
 {
     public Cell[,] world;
-    public int rows, columns;
-    public int runTimes;
+    private int rows, columns;
+    private int runTimes;
 
     public World(int rows, int columns, int runTimes)
     {
@@ -25,7 +25,7 @@ class World
         {
             Update();
             Print();
-            Thread.Sleep(500);
+            Thread.Sleep(250);
         }
     }
     public void ChangeCell(int row, int column)
@@ -33,7 +33,7 @@ class World
         world[row, column].ChangeState();
     }
 
-    public void Update()
+    private void Update()
     {
         foreach(Cell cell in world)
         {
@@ -43,11 +43,15 @@ class World
         {
             cell.SetNextState();
         }
+
+        NextGeneration();
     }
 
-    public void Print()
+    private void Print()
     {
         Console.Clear();
+
+        DisplayInfoBar();
 
         for(int row = 0; row < rows; row++)
         {
@@ -55,8 +59,18 @@ class World
 
             for(int column = 0; column < columns; column++)
             {
-                char chellToChar = world[row,column].currentState ? '#' : '.';
-                Console.Write($" {chellToChar} ");
+                char cellToChar;
+                if (world[row, column].currentState)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    cellToChar = '#';
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.White;
+                    cellToChar = '.';
+                }
+                Console.Write($" {cellToChar} ");
             }
         }  
     }

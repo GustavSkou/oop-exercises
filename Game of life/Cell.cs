@@ -1,8 +1,8 @@
 class Cell
 {
     public bool currentState = false, nextState;
-    protected int aliveNeighbors;
-    public int row, column;
+    private int aliveNeighbors;
+    private int row, column;
     
     public Cell(int row, int column)
     {
@@ -37,7 +37,7 @@ class Cell
                 }
             }
         }
-    return aliveNeighbors;
+        return aliveNeighbors;
     }
 
     public void GetNextState(Cell cell, Cell[,] world) //update
@@ -79,5 +79,20 @@ class Cell
     public void SetNextState()
     {
         currentState = nextState;
+    }
+
+    public void CheckOutOffWorld(Cell cell, Cell[,] world)
+    {
+        if (cell.row >= world.GetLength(0))
+        {
+            
+        }
+
+        if (cell.column >= world.GetLength(1))
+        {
+
+        }
+
+
     }
 }
