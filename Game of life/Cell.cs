@@ -98,19 +98,4 @@ class Cell
     {
         currentState = nextState;
     }
-
-    public void CheckOutOffWorld(Cell cell, Cell[,] world)
-    {
-        if (cell.row >= world.GetLength(0))
-        {
-
-        }
-
-        if (cell.column >= world.GetLength(1))
-        {
-
-        }
-
-
-    }
 }
