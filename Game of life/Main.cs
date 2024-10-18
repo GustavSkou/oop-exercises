@@ -8,3 +8,13 @@
         world.Run();
     }
 }
+
+/*
+
+--builder--
+
+move: arrowkeys
+change cell: space
+start: m
+
+*/
