@@ -1,0 +1,15 @@
+C:\Users\gusta\Desktop\oop exercises\shapes\bin\Debug\net8.0\shapes.exe
+C:\Users\gusta\Desktop\oop exercises\shapes\bin\Debug\net8.0\shapes.deps.json
+C:\Users\gusta\Desktop\oop exercises\shapes\bin\Debug\net8.0\shapes.runtimeconfig.json
+C:\Users\gusta\Desktop\oop exercises\shapes\bin\Debug\net8.0\shapes.dll
+C:\Users\gusta\Desktop\oop exercises\shapes\bin\Debug\net8.0\shapes.pdb
+C:\Users\gusta\Desktop\oop exercises\shapes\obj\Debug\net8.0\shapes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gusta\Desktop\oop exercises\shapes\obj\Debug\net8.0\shapes.AssemblyInfoInputs.cache
+C:\Users\gusta\Desktop\oop exercises\shapes\obj\Debug\net8.0\shapes.AssemblyInfo.cs
+C:\Users\gusta\Desktop\oop exercises\shapes\obj\Debug\net8.0\shapes.csproj.CoreCompileInputs.cache
+C:\Users\gusta\Desktop\oop exercises\shapes\obj\Debug\net8.0\shapes.sourcelink.json
+C:\Users\gusta\Desktop\oop exercises\shapes\obj\Debug\net8.0\shapes.dll
+C:\Users\gusta\Desktop\oop exercises\shapes\obj\Debug\net8.0\refint\shapes.dll
+C:\Users\gusta\Desktop\oop exercises\shapes\obj\Debug\net8.0\shapes.pdb
+C:\Users\gusta\Desktop\oop exercises\shapes\obj\Debug\net8.0\shapes.genruntimeconfig.cache
+C:\Users\gusta\Desktop\oop exercises\shapes\obj\Debug\net8.0\ref\shapes.dll

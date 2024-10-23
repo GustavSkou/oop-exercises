@@ -155,9 +155,7 @@ class World : InfoBar
                 default:
                 break;
             }
-            Print(row, column);
-        
+            Print(row, column);   
         }
     }
-
 }
